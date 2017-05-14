@@ -17,6 +17,7 @@ import { REPOSITORY_LIST } from '../mocks/repository.mocks';
 
 export class GithubService {
   private baseUrl: string = "https://api.github.com/users";
+  private reposUrl: string = "repos";
 
   constructor(private http: Http) {
     console.log('Hello GithubService Provider');
@@ -24,10 +25,18 @@ export class GithubService {
 
   getUserInformation(username: string): Observable<User> {
     return this.http.get(`${this.baseUrl}/${username}`)
-      .do((data: Response) => console.log(data))
-      .map((data: Response) => data.json())
-      .do((data: Response) => console.log(data))
-      .catch((error: Response) => Observable.throw(error.json().error || "server error."));
+      .do(this.logData)
+      .map(this.extractData)
+      .do(this.logData)
+      .catch(this.handleError);
+  }
+
+  getRepositoryInformation(username: string): Observable<Repository[]> {
+    return this.http.get(`${this.baseUrl}/${username}/${this.reposUrl}`)
+    .do(this.logData)
+    .map(this.extractData)
+    .do(this.logData)
+    .catch(this.handleError);
   }
 
   mockGetRepositoryInformation(username: string): Observable<Repository[]> {
@@ -35,6 +44,17 @@ export class GithubService {
   }
   mockGetUserInformation(username: string): Observable<User> {
     return Observable.of(USER_LIST.filter(user => user.name === username ) [0]);
+  }
+
+  private handleError(error: Response | any){
+    return Observable.throw(error.json().error || "server error.");
+  }
+
+  private extractData(response: Response) {
+    return response.json();
+  }
+  private logData(response: Response) {
+    console.log(response);
   }
 
 

@@ -4,7 +4,9 @@ import { GithubService } from '../../providers/github.service';
 import { User } from '../../models/user.interface';
 import { Repository } from '../../models/repository.interface';
 
-@IonicPage()
+@IonicPage({
+  segment: 'profile/results/:username'
+})
 @Component({
   selector: 'page-profile-search-results-page',
   templateUrl: 'profile-search-results-page.html',
@@ -20,7 +22,7 @@ export class ProfileSearchResultsPage {
 
   getUserInformation(): void {
     this.github.getUserInformation(this.username).subscribe((data: User) => this.user = data);
-    
+    this.github.getRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data)
     // this.github.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
     // this.github.mockGetRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data);
   }
