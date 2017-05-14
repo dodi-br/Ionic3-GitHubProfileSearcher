@@ -16,6 +16,7 @@ export class ProfileSearchResultsPage {
   username: string;
   user: User;
   repositories: Repository[];
+  url: string;
 
   constructor(private github: GithubService, private navCtrl: NavController, private navParams: NavParams) {
   }
@@ -23,8 +24,7 @@ export class ProfileSearchResultsPage {
   getUserInformation(): void {
     this.github.getUserInformation(this.username).subscribe((data: User) => this.user = data);
     this.github.getRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data)
-    // this.github.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
-    // this.github.mockGetRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data);
+    
   }
 
   ionViewWillLoad() {

@@ -1,8 +1,10 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-title>{{repository.name}}</ion-card-title>
+    <ion-card-title color="darkgray" text-wrap>
+      <a href="{{repository.html_url}}" target="_blank">{{repository.name}}</a>
+    </ion-card-title>
   </ion-card-header>
-  <ion-card-content>
+  <ion-card-content color="medgray">
     {{repository.description}}
   </ion-card-content>
 </ion-card>

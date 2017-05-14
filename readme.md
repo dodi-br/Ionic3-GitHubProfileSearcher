@@ -4,7 +4,7 @@
 
 ## App Highlights
 
-* This app allows users to search GitHub for a username.
+* This app allows users to search GitHub for a username. The results page shows the user's GitHub profile and their repositories. 
 
 ## Why did you make this?
 This app was created as part of the Udemy 'Learn Ionic 3' course.
