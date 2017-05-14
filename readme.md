@@ -1,6 +1,9 @@
 # Ionic 3 GitHub Profile Search
  Ionic 3 app. Implements GitHub API to allow users to search GitHub for a username. Displays user's name, bio, avatar, and repositories. Repository links are clickable.
- ![alt text](https://github.com/marnibrewster/Ionic3-GitHubProfileSearcher/blob/master/src/assets/icon/favicon.ico "Logo Title Text 1")
+ ![main view](https://github.com/marnibrewster/Ionic3-GitHubProfileSearcher/blob/master/src/assets/images/github_main.png "Logo Title Text 1")
+ ![main view](https://github.com/marnibrewster/Ionic3-GitHubProfileSearcher/blob/master/src/assets/images/github_search.png "Logo Title Text 1")
+ ![main view](https://github.com/marnibrewster/Ionic3-GitHubProfileSearcher/blob/master/src/assets/images/github_searchresults.png "Logo Title Text 1")
+ ![main view](https://github.com/marnibrewster/Ionic3-GitHubProfileSearcher/blob/master/src/assets/images/github_scrolledresults.png "Logo Title Text 1")
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
